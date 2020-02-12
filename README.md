@@ -2,7 +2,7 @@
 
 Custom reacts pages makes app development in react simple by providing a custom pagination. This means that the pagination functionality is provided but the styling is left to the developed
 
-# How to use
+# Usage
 
 - Install: `custom_react_pages`
 ```
