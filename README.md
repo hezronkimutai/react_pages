@@ -4,7 +4,7 @@ Custom reacts pages makes app development in react simple by providing a custom 
 
 # Usage
 
-- Install: `custom_react_pages`
+- Install: `npm -i custom_react_pages`
 
 ```
 ...
