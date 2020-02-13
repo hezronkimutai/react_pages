@@ -1,8 +1,14 @@
 {
   "name": "custom_react_pages",
-  "version": "1.0.6",
+  "version": "1.2.61",
   "description": "This package makes pagination easier",
   "main": "index.js",
+  "keywords": [
+    "pagination",
+    "custom",
+    "pages",
+    "react"
+  ],
   "scripts": {
     "build": "./node_modules/.bin/babel src --out-file index.js"
   },

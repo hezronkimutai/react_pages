@@ -1,18 +1,21 @@
 # custom-react-pages ![npm](https://img.shields.io/npm/dt/custom_react_pages) ![David](https://img.shields.io/david/peer/hezronkimutai/react_pages)
 
-Custom reacts pages makes app development in react simple by providing a custom pagination. This means that the pagination functionality is provided but the styling is left to the developed
+Custom reacts pages makes app development in react simple by providing a custom pagination. This means that the pagination functionality is provided but the styling is left to the developer
+
+# Installation
+
+- `npm -i custom_react_pages`
 
 # Usage
-
-- Install: `custom_react_pages`
-
 ```
 ...
 import Pagination from 'custom-react-pages';
 
 ...
 <Pagination
-itemsPerPage={1},
+itemsPerPage={1}
+next="next"
+prev = "previous"
 data=[{firstName:'John',lastName:'Doe'},{firstName:'Nhoj',lastName:'Eod'}]
 oneItem={(item)=><div><div>{item.firstName}</div><div>{item.lastName}</div></div>}
 />
@@ -21,7 +24,7 @@ oneItem={(item)=><div><div>{item.firstName}</div><div>{item.lastName}</div></div
 
 ## Styling the pagination buttons
 
-The following is the JSX structure of the pagination buttons. Note that the content that will appear inthe `prev` and `next` buttons is completely dependent upon you.
+The following is the JSX structure of the pagination buttons. Note that the content that will appear inthe `prev` and `next` buttons is completely dependent upon you. Moreover, the styling we have provided below is just an example incase you are using a `.css` or `.scss` files, you can however style it the way you wish.
 
 ```
 <div className="pagination-buttons">
@@ -36,4 +39,46 @@ The following is the JSX structure of the pagination buttons. Note that the cont
         <button>{next}</button>
     </div>
 </div>
+```
+
+## styling (.css file)
+```
+...
+.pagination-buttons{
+    //Your style goes here
+}
+.arrows{
+    //Your style goes here
+}
+.arrows button{
+    //Your style goes here
+}
+.pages{
+    //Your style goes here
+}
+.pages button{
+    //Your style goes here
+}
+...
+```
+
+## styling (.scss file)
+```
+...
+.pagination-buttons{
+    //Your style goes here
+    .arrows{
+    //Your style goes here
+        button{
+        //Your style goes here
+        }
+    }
+.pages{
+    //Your style goes here
+        button{
+        //Your style goes here
+        }
+    }
+}
+...
 ```
