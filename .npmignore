@@ -1,0 +1,17 @@
+node_modules/
+.env
+dist
+package-lock.json
+.DS_Store
+coverage/
+html-report/
+.vscode/
+src/
+.gitignore
+.env.example
+.prettierrc
+.github/
+webpack.config.babel.js
+.circleci/
+.storybook/
+public/
