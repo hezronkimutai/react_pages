@@ -14,16 +14,21 @@ export default ({
   prev,
   activePageStyle,
   pageName,
-  pageButtons
+  pageButtons,
 }) => {
   const [pageNo, setPageNo] = useState(0)
 
   const pages = data ? Paginate(data, itemsPerPage) : []
 
   const allPages = pages.map((item, index) => index)
-   
+
   const allPageNumbers =
-    pageNo < Math.round(pageButtons/2) ? allPages.slice(0, pageButtons) : allPages.slice(pageNo - (Math.round(pageButtons/2)), pageNo + (Math.round(pageButtons/2)))
+    pageNo < Math.round(pageButtons / 2)
+      ? allPages.slice(0, pageButtons)
+      : allPages.slice(
+          pageNo - Math.round(pageButtons / 2),
+          pageNo + Math.round(pageButtons / 2)
+        )
 
   return (
     <div className="pagination-container">
@@ -31,10 +36,9 @@ export default ({
       <div className="pagination-buttons">
         <div className="arrows">
           <button
+            id="prev"
             type="button"
-            onClick={() => {
-              setPageNo(pageNo === 0 ? pageNo : pageNo - 1)
-            }}
+            onClick={() => setPageNo(pageNo === 0 ? pageNo : pageNo - 1)}
           >
             {prev}
           </button>
@@ -44,9 +48,7 @@ export default ({
             <div id={index} key={index}>
               <button
                 type="button"
-                onClick={() => {
-                  setPageNo(item)
-                }}
+                onClick={() => setPageNo(item)}
                 style={item === pageNo ? activePageStyle : {}}
               >
                 {pageName} {item + 1}
@@ -56,10 +58,11 @@ export default ({
         </div>
         <div className="arrows">
           <button
+            id="next"
             type="button"
-            onClick={() => {
+            onClick={() =>
               setPageNo(pageNo === pages.length - 1 ? pageNo : pageNo + 1)
-            }}
+            }
           >
             {next}
           </button>
