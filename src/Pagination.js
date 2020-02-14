@@ -1,61 +1,64 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 const Paginate = (allData, itemsPerPage) =>
   allData
     .map(
       (item, index) =>
         index % itemsPerPage === 0 && allData.slice(index, index + itemsPerPage)
     )
-    .filter(Boolean);
+    .filter(Boolean)
 export default ({
   data,
   itemsPerPage,
-  oneItem,
+  onePage,
   next,
   prev,
-  activeStyle,
-  pageName
+  activePageStyle,
+  pageName,
+  pageButtons
 }) => {
-  const [pageNo, setPageNo] = useState(0);
+  const [pageNo, setPageNo] = useState(0)
 
-  const pages = data ? Paginate(data, itemsPerPage) : [];
+  const pages = data ? Paginate(data, itemsPerPage) : []
 
- const allPages = pages.map((item, index) => index);
-  const allPageNumbers = pageNo < 5 ? allPages.slice(0, 10) : allPages.slice(pageNo-5, pageNo+5)
-  
+  const allPages = pages.map((item, index) => index)
+   
+  const allPageNumbers =
+    pageNo < Math.round(pageButtons/2) ? allPages.slice(0, pageButtons) : allPages.slice(pageNo - (Math.round(pageButtons/2)), pageNo + (Math.round(pageButtons/2)))
+
   return (
-    <div className='pagination-container'>
-      {(pages[pageNo] || pages[0]).map((item, index) => oneItem(item, index))}
-      <div className='pagination-buttons'>
-        <div className='arrows'>
+    <div className="pagination-container">
+      {(pages[pageNo] || pages[0]).map((item, index) => onePage(item, index))}
+      <div className="pagination-buttons">
+        <div className="arrows">
           <button
-            type='button'
+            type="button"
             onClick={() => {
-              setPageNo(pageNo === 0 ? pageNo : pageNo - 1);
+              setPageNo(pageNo === 0 ? pageNo : pageNo - 1)
             }}
           >
             {prev}
           </button>
         </div>
-        <div className='pages'>
+        <div className="pages">
           {allPageNumbers.map((item, index) => (
-            <div id={index}>
+            <div id={index} key={index}>
               <button
-                type='button'
+                type="button"
                 onClick={() => {
-                  setPageNo(item);
+                  setPageNo(item)
                 }}
-                style={item === pageNo ? activeStyle : {}}
+                style={item === pageNo ? activePageStyle : {}}
               >
                 {pageName} {item + 1}
               </button>
             </div>
           ))}
         </div>
-        <div className='arrows'>
+        <div className="arrows">
           <button
-            type='button'
+            type="button"
             onClick={() => {
-              setPageNo(pageNo === pages.length - 1 ? pageNo : pageNo + 1);
+              setPageNo(pageNo === pages.length - 1 ? pageNo : pageNo + 1)
             }}
           >
             {next}
@@ -63,5 +66,5 @@ export default ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

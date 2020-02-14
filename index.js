@@ -1,25 +1,52 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
 
+var _react = _interopRequireDefault(require("react"));
+
+var _pagination = _interopRequireDefault(require("./pagination"));
+
+var _mockData = _interopRequireDefault(require("./mockData"));
+
+var App = function App() {
+  return _react["default"].createElement(_pagination["default"], {
+    itemsPerPage: 1,
+    activeStyle: {
+      backgroundColor: '#00b9f2',
+      color: 'white'
+    },
+    next: "next",
+    prev: "previous",
+    data: _mockData["default"],
+    oneItem: function oneItem(item, index) {
+      return _react["default"].createElement("div", {
+        key: index
+      }, _react["default"].createElement("div", null, item.firstName), _react["default"].createElement("div", null, item.lastName));
+    }
+  });
+};
+
+var _default = App;
+exports["default"] = _default;
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
 var _react = _interopRequireWildcard(require("react"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Paginate = function Paginate(allData, itemsPerPage) {
   return allData.map(function (item, index) {
@@ -37,77 +64,15 @@ var _default = function _default(_ref) {
       pageName = _ref.pageName;
 
   var _useState = (0, _react.useState)(0),
-      _useState2 = _slicedToArray(_useState, 2),
+      _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
       pageNo = _useState2[0],
       setPageNo = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(true),
-      _useState4 = _slicedToArray(_useState3, 2),
-      check = _useState4[0],
-      setCheck = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      lower = _useState6[0],
-      setLower = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      upper = _useState8[0],
-      setUpper = _useState8[1];
-
-  var _useState9 = (0, _react.useState)(true),
-      _useState10 = _slicedToArray(_useState9, 2),
-      goBack = _useState10[0],
-      setGoBack = _useState10[1];
-
-  var _useState11 = (0, _react.useState)(true),
-      _useState12 = _slicedToArray(_useState11, 2),
-      goFoward = _useState12[0],
-      setGoFoward = _useState12[1];
-
-  var _useState13 = (0, _react.useState)(0),
-      _useState14 = _slicedToArray(_useState13, 2),
-      currentLength = _useState14[0],
-      setCurrentLength = _useState14[1];
-
-  var _useState15 = (0, _react.useState)(0),
-      _useState16 = _slicedToArray(_useState15, 2),
-      paginationPageNo = _useState16[0],
-      setPaginationPageNo = _useState16[1];
-
-  (0, _react.useEffect)(function () {
-    setPageNo(0);
-  }, [data, pages]);
   var pages = data ? Paginate(data, itemsPerPage) : [];
-  var allPageNumbers = pages && Paginate(pages.map(function (item, index) {
+  var allPages = pages.map(function (item, index) {
     return index;
-  }), 10);
-
-  if ((pageNo + 1) % 10 === 0 && pageNo !== 0 && check) {
-    setPaginationPageNo(paginationPageNo + 1);
-    setCurrentLength(currentLength + 10);
-    setCheck(false);
-    setLower(true);
-    setGoBack(false);
-    setGoFoward(false);
-  }
-
-  if (!goFoward) {
-    setGoBack(true);
-    setGoFoward(true);
-  } // pageNo / currentLength === 1 && !goBack ? setGoBack(true):setGoBack(false);
-
-
-  if (pageNo / currentLength === 1 && !goBack) {
-    setPaginationPageNo(paginationPageNo - 1);
-    setCurrentLength(currentLength - 10);
-    setCheck(false);
-    setUpper(true);
-    setGoBack(true);
-    setGoBack(true);
-  }
-
+  });
+  var allPageNumbers = pageNo < 5 ? allPages.slice(0, 10) : allPages.slice(pageNo - 5, pageNo + 5);
   return _react["default"].createElement("div", {
     className: "pagination-container"
   }, (pages[pageNo] || pages[0]).map(function (item, index) {
@@ -120,45 +85,108 @@ var _default = function _default(_ref) {
     type: "button",
     onClick: function onClick() {
       setPageNo(pageNo === 0 ? pageNo : pageNo - 1);
-      setCheck(true);
-      setLower(false);
-      setUpper(false);
-      setGoBack(false);
     }
   }, prev)), _react["default"].createElement("div", {
     className: "pages"
-  }, lower && _react["default"].createElement("div", null, _react["default"].createElement("button", {
-    type: "button",
-    style: activeStyle
-  }, pageNo + 1)), (allPageNumbers[paginationPageNo] || allPageNumbers[0]).map(function (item, index) {
+  }, allPageNumbers.map(function (item, index) {
     return _react["default"].createElement("div", {
-      id: index
+      id: index,
+      key: index
     }, _react["default"].createElement("button", {
       type: "button",
       onClick: function onClick() {
         setPageNo(item);
-        setCheck(true);
-        setLower(false);
-        setUpper(false);
-        setGoBack(false);
       },
-      style: pageNo === currentLength + index ? activeStyle : {}
+      style: item === pageNo ? activeStyle : {}
     }, pageName, " ", item + 1));
-  }), upper && _react["default"].createElement("div", null, _react["default"].createElement("button", {
-    type: "button",
-    style: activeStyle
-  }, pageNo + 1))), _react["default"].createElement("div", {
+  })), _react["default"].createElement("div", {
     className: "arrows"
   }, _react["default"].createElement("button", {
     type: "button",
     onClick: function onClick() {
       setPageNo(pageNo === pages.length - 1 ? pageNo : pageNo + 1);
-      setCheck(true);
-      setLower(false);
-      setUpper(false);
-      setGoBack(false);
     }
   }, next))));
 };
 
+exports["default"] = _default;
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = require("react-dom");
+
+var _App = _interopRequireDefault(require("./App"));
+
+var rootElement = document.getElementById('app');
+(0, _reactDom.render)(_react["default"].createElement(_App["default"], null), rootElement);
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _default = [{
+  firstName: 'John',
+  lastName: 'Doe'
+}, {
+  firstName: 'Hezron',
+  lastName: 'Kimutai'
+}, {
+  firstName: 'Sharon',
+  lastName: 'Koech'
+}, {
+  firstName: 'Emmy',
+  lastName: 'Lagat'
+}, {
+  firstName: 'Dorcas',
+  lastName: 'Chep'
+}, {
+  firstName: 'Esther',
+  lastName: 'Aww'
+}, {
+  firstName: 'Kerubo',
+  lastName: 'Him'
+}, {
+  firstName: 'Peter',
+  lastName: 'Pata'
+}, {
+  firstName: 'New',
+  lastName: 'World'
+}, {
+  firstName: 'Of',
+  lastName: 'Mine'
+}, {
+  firstName: '1',
+  lastName: 'Doe'
+}, {
+  firstName: '2',
+  lastName: 'Kimutai'
+}, {
+  firstName: '3',
+  lastName: 'Koech'
+}, {
+  firstName: '4',
+  lastName: 'Lagat'
+}, {
+  firstName: '5',
+  lastName: 'Chep'
+}, {
+  firstName: '6',
+  lastName: 'Aww'
+}, {
+  firstName: '7',
+  lastName: 'Him'
+}, {
+  firstName: '8',
+  lastName: 'Pata'
+}, {
+  firstName: '9',
+  lastName: 'World'
+}, {
+  firstName: '10',
+  lastName: 'Mine'
+}];
 exports["default"] = _default;
