@@ -1,40 +1,5 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _pagination = _interopRequireDefault(require("./pagination"));
-
-var _mockData = _interopRequireDefault(require("./mockData"));
-
-var App = function App() {
-  return _react["default"].createElement(_pagination["default"], {
-    itemsPerPage: 1,
-    activeStyle: {
-      backgroundColor: '#00b9f2',
-      color: 'white'
-    },
-    next: "next",
-    prev: "previous",
-    data: _mockData["default"],
-    oneItem: function oneItem(item, index) {
-      return _react["default"].createElement("div", {
-        key: index
-      }, _react["default"].createElement("div", null, item.firstName), _react["default"].createElement("div", null, item.lastName));
-    }
-  });
-};
-
-var _default = App;
-exports["default"] = _default;
-"use strict";
-
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -57,11 +22,12 @@ var Paginate = function Paginate(allData, itemsPerPage) {
 var _default = function _default(_ref) {
   var data = _ref.data,
       itemsPerPage = _ref.itemsPerPage,
-      oneItem = _ref.oneItem,
+      onePage = _ref.onePage,
       next = _ref.next,
       prev = _ref.prev,
-      activeStyle = _ref.activeStyle,
-      pageName = _ref.pageName;
+      activePageStyle = _ref.activePageStyle,
+      pageName = _ref.pageName,
+      pageButtons = _ref.pageButtons;
 
   var _useState = (0, _react.useState)(0),
       _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
@@ -72,11 +38,11 @@ var _default = function _default(_ref) {
   var allPages = pages.map(function (item, index) {
     return index;
   });
-  var allPageNumbers = pageNo < 5 ? allPages.slice(0, 10) : allPages.slice(pageNo - 5, pageNo + 5);
+  var allPageNumbers = pageNo < Math.round(pageButtons / 2) ? allPages.slice(0, pageButtons) : allPages.slice(pageNo - Math.round(pageButtons / 2), pageNo + Math.round(pageButtons / 2));
   return _react["default"].createElement("div", {
     className: "pagination-container"
   }, (pages[pageNo] || pages[0]).map(function (item, index) {
-    return oneItem(item, index);
+    return onePage(item, index);
   }), _react["default"].createElement("div", {
     className: "pagination-buttons"
   }, _react["default"].createElement("div", {
@@ -97,7 +63,7 @@ var _default = function _default(_ref) {
       onClick: function onClick() {
         setPageNo(item);
       },
-      style: item === pageNo ? activeStyle : {}
+      style: item === pageNo ? activePageStyle : {}
     }, pageName, " ", item + 1));
   })), _react["default"].createElement("div", {
     className: "arrows"
@@ -109,84 +75,4 @@ var _default = function _default(_ref) {
   }, next))));
 };
 
-exports["default"] = _default;
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = require("react-dom");
-
-var _App = _interopRequireDefault(require("./App"));
-
-var rootElement = document.getElementById('app');
-(0, _reactDom.render)(_react["default"].createElement(_App["default"], null), rootElement);
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var _default = [{
-  firstName: 'John',
-  lastName: 'Doe'
-}, {
-  firstName: 'Hezron',
-  lastName: 'Kimutai'
-}, {
-  firstName: 'Sharon',
-  lastName: 'Koech'
-}, {
-  firstName: 'Emmy',
-  lastName: 'Lagat'
-}, {
-  firstName: 'Dorcas',
-  lastName: 'Chep'
-}, {
-  firstName: 'Esther',
-  lastName: 'Aww'
-}, {
-  firstName: 'Kerubo',
-  lastName: 'Him'
-}, {
-  firstName: 'Peter',
-  lastName: 'Pata'
-}, {
-  firstName: 'New',
-  lastName: 'World'
-}, {
-  firstName: 'Of',
-  lastName: 'Mine'
-}, {
-  firstName: '1',
-  lastName: 'Doe'
-}, {
-  firstName: '2',
-  lastName: 'Kimutai'
-}, {
-  firstName: '3',
-  lastName: 'Koech'
-}, {
-  firstName: '4',
-  lastName: 'Lagat'
-}, {
-  firstName: '5',
-  lastName: 'Chep'
-}, {
-  firstName: '6',
-  lastName: 'Aww'
-}, {
-  firstName: '7',
-  lastName: 'Him'
-}, {
-  firstName: '8',
-  lastName: 'Pata'
-}, {
-  firstName: '9',
-  lastName: 'World'
-}, {
-  firstName: '10',
-  lastName: 'Mine'
-}];
 exports["default"] = _default;

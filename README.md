@@ -1,4 +1,9 @@
-# custom-react-pages ![npm](https://img.shields.io/npm/dt/custom_react_pages) ![David](https://img.shields.io/david/peer/hezronkimutai/react_pages)
+# custom-react-pages 
+![npm](https://img.shields.io/npm/dt/custom_react_pages)
+ ![David](https://img.shields.io/david/peer/hezronkimutai/react_pages)
+ [![Maintainability](https://api.codeclimate.com/v1/badges/407669f9a786b380a96c/maintainability)](https://codeclimate.com/github/hezronkimutai/react_pages/maintainability)
+ [![CircleCI](https://circleci.com/gh/hezronkimutai/react_pages/tree/develop.svg?style=svg)](https://circleci.com/gh/hezronkimutai/react_pages/tree/develop)
+ [![Coverage Status](https://coveralls.io/repos/github/hezronkimutai/react_pages/badge.svg?branch=develop)](https://coveralls.io/github/hezronkimutai/react_pages?branch=develop)
 
 Custom reacts pages makes app development in react simple by providing a custom pagination. This means that the pagination functionality is provided but the styling is left to the developer
 
