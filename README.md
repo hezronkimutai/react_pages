@@ -16,7 +16,7 @@ Custom reacts pages makes app development in react simple by providing a custom 
 
 Click the [here](https://custom-react-pages.herokuapp.com/) to view a demo of the package
 
-![Alt Text](https://res.cloudinary.com/hezzie/image/upload/v1581792375/ezgif.com-crop_dfb9zi.gif)
+![Alt Text](https://res.cloudinary.com/hezzie/image/upload/v1581792580/ezgif.com-crop_1_yradu7.gif)
 
 # Usage
 
