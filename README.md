@@ -16,6 +16,8 @@ Custom reacts pages makes app development in react simple by providing a custom 
 
 Click the [here](https://custom-react-pages.herokuapp.com/) to view a demo of the package
 
+[![Demo CountPages alpha](https://share.gifyoutube.com/KzB6Gb.gif)](https://youtu.be/LPJReF-nYOo)
+
 # Usage
 
 ```
