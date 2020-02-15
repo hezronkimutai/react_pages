@@ -48,9 +48,10 @@ var _default = function _default(_ref) {
   }, _react["default"].createElement("div", {
     className: "arrows"
   }, _react["default"].createElement("button", {
+    id: "prev",
     type: "button",
     onClick: function onClick() {
-      setPageNo(pageNo === 0 ? pageNo : pageNo - 1);
+      return setPageNo(pageNo === 0 ? pageNo : pageNo - 1);
     }
   }, prev)), _react["default"].createElement("div", {
     className: "pages"
@@ -61,16 +62,17 @@ var _default = function _default(_ref) {
     }, _react["default"].createElement("button", {
       type: "button",
       onClick: function onClick() {
-        setPageNo(item);
+        return setPageNo(item);
       },
       style: item === pageNo ? activePageStyle : {}
     }, pageName, " ", item + 1));
   })), _react["default"].createElement("div", {
     className: "arrows"
   }, _react["default"].createElement("button", {
+    id: "next",
     type: "button",
     onClick: function onClick() {
-      setPageNo(pageNo === pages.length - 1 ? pageNo : pageNo + 1);
+      return setPageNo(pageNo === pages.length - 1 ? pageNo : pageNo + 1);
     }
   }, next))));
 };

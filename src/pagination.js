@@ -29,7 +29,6 @@ export default ({
           pageNo - Math.round(pageButtons / 2),
           pageNo + Math.round(pageButtons / 2)
         )
-
   return (
     <div className="pagination-container">
       {(pages[pageNo] || pages[0]).map((item, index) => onePage(item, index))}
@@ -47,6 +46,7 @@ export default ({
           {allPageNumbers.map((item, index) => (
             <div id={index} key={index}>
               <button
+              id='kill'
                 type="button"
                 onClick={() => setPageNo(item)}
                 style={item === pageNo ? activePageStyle : {}}

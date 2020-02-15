@@ -1,0 +1,59 @@
+%fullDimensions {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+%flex-row {
+  display: flex;
+  flex-direction: row;
+}
+html {
+  position: fixed;
+  @extend %fullDimensions;
+  body {
+    height: 60%;
+    width: 100%;
+    margin: auto;
+    #app {
+      @extend %fullDimensions;
+      .container {
+        margin: auto;
+        margin-top: 10%;
+        width: 70%;
+        background-color: #999999;
+        height: 100%;
+        h1 {
+          width: 100%;
+          text-align: center;
+        }
+        .pagination-container {
+          margin: auto;
+          height: 100%;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          .oneItem {
+            @extend %flex-row;
+            height: 15%;
+            div {
+              padding: 20px;
+            }
+          }
+          .pagination-buttons {
+            @extend %flex-row;
+            .pages,
+            .arrows {
+              @extend %flex-row;
+              button {
+                color: #00b9f2;
+                outline: none;
+                margin: 5px;
+                width: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

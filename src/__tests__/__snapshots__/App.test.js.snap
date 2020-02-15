@@ -2,4 +2,4 @@
 
 exports[`App test. Buttons and snapshot when props is provided 1`] = `ReactWrapper {}`;
 
-exports[`App test. Test snapshot when props is not provided 1`] = `ReactWrapper {}`;
+exports[`App test. Buttons and snapshot when props is provided 2`] = `ReactWrapper {}`;
