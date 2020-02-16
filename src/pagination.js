@@ -15,6 +15,8 @@ export default ({
   activePageStyle,
   pageName,
   pageButtons,
+  paginationContainer,
+  paginationButtons,
 }) => {
   const [pageNo, setPageNo] = useState(0)
 
@@ -31,9 +33,9 @@ export default ({
         )
 
   return (
-    <div className="pagination-container">
+    <div className="pagination-container" style={paginationContainer}>
       {(pages[pageNo] || pages[0]).map((item, index) => onePage(item, index))}
-      <div className="pagination-buttons">
+      <div className="pagination-buttons" style={paginationButtons}>
         <div className="arrows">
           <button
             id="prev"

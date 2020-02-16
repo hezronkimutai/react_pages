@@ -7,12 +7,15 @@
 
 Custom reacts pages makes app development in react simple by providing a custom pagination. This means that the pagination functionality is provided but the styling is left to the developer
 
+# Demo
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/33821734/74608226-17ca7380-50e8-11ea-86d6-f00b46294882.gif)
+
 # Installation
 
 - `npm -i custom_react_pages`
 
 # Usage
-```
+``` jsx
 ...
 import Pagination from 'custom-react-pages';
 
@@ -23,6 +26,9 @@ next="next"
 prev = "previous"
 data=[{firstName:'John',lastName:'Doe'},{firstName:'Nhoj',lastName:'Eod'}]
 oneItem={(item)=><div><div>{item.firstName}</div><div>{item.lastName}</div></div>}
+// option props
+paginationContainer={centertBottomPagination.paginationContainer} // move pagination either on top or bottom
+paginationButtons={centertBottomPagination.paginationButtons}    // move pagination on the left or center or right of the page
 />
 ...
 ```
@@ -31,7 +37,7 @@ oneItem={(item)=><div><div>{item.firstName}</div><div>{item.lastName}</div></div
 
 The following is the JSX structure of the pagination buttons. Note that the content that will appear inthe `prev` and `next` buttons is completely dependent upon you. Moreover, the styling we have provided below is just an example incase you are using a `.css` or `.scss` files, you can however style it the way you wish.
 
-```
+``` jsx
 <div className="pagination-buttons">
     <div className="arrows">
         <button>{prev}</button>
@@ -47,7 +53,7 @@ The following is the JSX structure of the pagination buttons. Note that the cont
 ```
 
 ## styling (.css file)
-```
+``` css
 ...
 .pagination-buttons{
     //Your style goes here
@@ -68,7 +74,7 @@ The following is the JSX structure of the pagination buttons. Note that the cont
 ```
 
 ## styling (.scss file)
-```
+``` css
 ...
 .pagination-buttons{
     //Your style goes here
@@ -87,3 +93,15 @@ The following is the JSX structure of the pagination buttons. Note that the cont
 }
 ...
 ```
+
+## Customize CSS pagination
+You have 2 ways to customize style. Firstly, you can use demo styles, you can find in `src/assets/example.css`.
+Secondly you can write your own.
+
+> Demo helps to position pagination anywhere on the page. We have six ways to position it.
+1. topLeftPagination
+2. topRightPagination
+3. bottomLeftPagination
+4. bottomRightPagination
+5. centerTopPagination
+6. centerBottomPagination
