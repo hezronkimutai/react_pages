@@ -10,7 +10,9 @@ Custom reacts pages makes app development in react simple by providing a custom 
 
 # Installation
 
-- `npm i custom_react_pages`
+- `npm i custom_react_pages`  
+    OR
+- `yarn add custom_react_pages`
 
 # Demo
 
@@ -20,17 +22,23 @@ Click the [here](https://custom-react-pages.herokuapp.com/) to view a demo of th
 
 # Usage
 
-```
+```javascript
 ...
 import Pagination from 'custom-react-pages';
 
 ...
-<Pagination
-itemsPerPage={1}
-next="next"
-prev = "previous"
-data=[{firstName:'John',lastName:'Doe'},{firstName:'Nhoj',lastName:'Eod'}]
-oneItem={(item)=><div><div>{item.firstName}</div><div>{item.lastName}</div></div>}
+<Pagination 
+    itemsPerPage={1}
+    next="next"
+    prev = "previous"
+    data=[{firstName:'John',lastName:'Doe'},{firstName:'Nhoj',lastName:'Eod'}]
+    oneItem={
+        (item) => 
+            <div>
+                <div>{item.firstName}</div>
+                <div>{item.lastName}</div>
+            </div>
+    }
 />
 ...
 ```
@@ -39,7 +47,7 @@ oneItem={(item)=><div><div>{item.firstName}</div><div>{item.lastName}</div></div
 
 The following is the JSX structure of the pagination buttons. Note that the content that will appear inthe `prev` and `next` buttons is completely dependent upon you. Moreover, the styling we have provided below is just an example incase you are using a `.css` or `.scss` files, you can however style it the way you wish.
 
-```
+```javascript
 <Pagination
       itemsPerPage={5}
       activePageStyle={//Add css style for active page button e.g { backgroundColor: '#00b9f2', color: 'white' }}
@@ -58,7 +66,7 @@ The following is the JSX structure of the pagination buttons. Note that the cont
 
 ## styling (.css file)
 
-```
+```css
 ...
 .pagination-buttons{
     //Your style goes here
@@ -80,7 +88,7 @@ The following is the JSX structure of the pagination buttons. Note that the cont
 
 ## styling (.scss file)
 
-```
+```scss
 ...
 .pagination-buttons{
     //Your style goes here
@@ -115,7 +123,6 @@ This package is an open source project. Any developer who wish to contribute on 
 hezronkimutai
 
 # Contributors
-
-- victorkarangwa4
-- william0000
-- niyongaboeric
+<a href="https://github.com/hezronkimutai/react_pages/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=hezronkimutai/react_pages" width="100"/>
+</a>
