@@ -27,7 +27,7 @@ const webpack = {
         ],
       },
       {
-        include: path.resolve(__dirname, './src/assets'),
+        include: path.resolve(__dirname, './src/example/assets'),
         test: /\.(s[ac]ss|css)$/i,
         use: [
           'style-loader',
