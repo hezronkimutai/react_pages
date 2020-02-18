@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App test. Buttons and snapshot when props is provided 1`] = `ReactWrapper {}`;
+exports[`App test when page number does not exist Buttons and snapshot when props is provided 1`] = `ReactWrapper {}`;
+
+exports[`App test. Buttons and snapshot when props is provided 1`] = `ShallowWrapper {}`;
 
 exports[`App test. Buttons and snapshot when props is provided 2`] = `ReactWrapper {}`;
+
+exports[`App test. Buttons and snapshot when props is provided 3`] = `ReactWrapper {}`;
+
+exports[`when page number is is the last Buttons and snapshot when props is provided 1`] = `ReactWrapper {}`;

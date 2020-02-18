@@ -30,6 +30,7 @@ export default ({
           pageNo - Math.round(pageButtons / 2),
           pageNo + Math.round(pageButtons / 2)
         ))
+
   return (
     <div className="pagination-container">
       {data.length &&

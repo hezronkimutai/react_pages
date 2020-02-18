@@ -21,41 +21,32 @@ Click the [here](https://custom-react-pages.herokuapp.com/) to view a demo of th
 ![Alt Text](https://res.cloudinary.com/hezzie/image/upload/v1581792580/ezgif.com-crop_1_yradu7.gif)
 
 # Usage
+## Properties 
 
-```javascript
-...
-import Pagination from 'custom-react-pages';
-
-...
-<Pagination 
-    itemsPerPage={1}
-    next="next"
-    prev = "previous"
-    data=[{firstName:'John',lastName:'Doe'},{firstName:'Nhoj',lastName:'Eod'}]
-    oneItem={
-        (item) => 
-            <div>
-                <div>{item.firstName}</div>
-                <div>{item.lastName}</div>
-            </div>
-    }
-/>
-...
-```
+| property | Description  |
+| ------- | --- |
+| itemsPerPage | This represents the number of items you wish to be in one page |
+| activePageStyle | This represents the css style for the active page button |
+| next | This represents waht you wish to appear as the next button, it can be anything ranging from a string to html tags |
+| prev | This represents waht you wish to appear as the previous button, it can be anything ranging from a string to html tags |
+| data | This represents the whole array you wish to paginate |
+| pageButtons | This represents the number of page buttons you wish to be visible on your app |
+| onePage | This represents one item in the array  |
 
 ## Styling the pagination buttons
 
 The following is the JSX structure of the pagination buttons. Note that the content that will appear inthe `prev` and `next` buttons is completely dependent upon you. Moreover, the styling we have provided below is just an example incase you are using a `.css` or `.scss` files, you can however style it the way you wish.
 
+
 ```javascript
 <Pagination
       itemsPerPage={5}
-      activePageStyle={//Add css style for active page button e.g { backgroundColor: '#00b9f2', color: 'white' }}
-      next= {//Add what you want to appear as the next button e.g 'next'}
-      prev={//Add what you want to appear as previous button e.g 'prev'}
-      data={//This is the array of data you want to paginate e.g [{fistName:'john'},{firstName:'Doe'}]}
-      pageButtons={// Add the number of page buttons you want to appear e.g 10}
-      onePage={// Format of a single item goes here e.g
+      activePageStyle={{ backgroundColor: '#00b9f2', color: 'white' }}
+      next= {'next'}
+      prev={'prev'}
+      data={[{fistName:'john'},{firstName:'Doe'}]}
+      pageButtons={10}
+      onePage={
           (item, index) => (
         <div key={index} className="oneItem">
           <div>{item.firstName}</div>
