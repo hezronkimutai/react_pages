@@ -1,7 +1,7 @@
 {
   "name": "custom_react_pages",
-  "version": "1.3.5",
-  "description": "This package makes pagination easier",
+  "version": "1.3.6",
+  "description": "This package makes pagination easier and customizable than ever before.",
   "main": "index.js",
   "keywords": [
     "pagination",
@@ -66,6 +66,7 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^8.0.2",
     "serve": "^11.3.0",
