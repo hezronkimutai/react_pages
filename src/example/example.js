@@ -1,9 +1,9 @@
 import React from 'react'
-import Pagination from './pagination'
-import data from './mockData'
+import Pagination from '../lib/pagination'
+import { connect } from 'react-redux'
 import './assets/App.scss'
 
-const App = () => (
+const App = ({ data }) => (
   <div className="container">
     <h1>Custom React Pages</h1>
     <Pagination
@@ -23,4 +23,8 @@ const App = () => (
   </div>
 )
 
-export default App
+const mapStateToProps = state => ({
+  data: state,
+})
+
+export default connect(mapStateToProps, null)(App)
