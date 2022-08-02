@@ -61,7 +61,7 @@
     "jest-html-reporters": "^1.2.1",
     "jest-localstorage-mock": "^2.4.0",
     "less-loader": "^5.0.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "path": "^0.12.7",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
